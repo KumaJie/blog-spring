@@ -1,5 +1,12 @@
 package cqut.blogspring.pojo;
 
+
+import org.apache.ibatis.jdbc.Null;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
+
 /**
  * @author Kuma
  * @date 2021年6月1日
@@ -11,12 +18,23 @@ public class Article {
     private String articleTitle;
     private String articleContent;
     private String articleDate;
-    private String articleView;
-    private String articleLike;
+    private int articleView;
+    private int articleLike;
 
     public Article(){}
 
-    public Article(String articleId, String userId, String categoriesId, String articleTitle, String articleContent, String articleDate, String articleView, String articleLike) {
+//    public Article(String articleId, String userId, String categoriesId, String articleTitle, String articleContent, String articleDate, int articleView, int articleLike) {
+//        this.articleId = createArticleId(userId);
+//        this.userId = userId;
+//        this.categoriesId = categoriesId;
+//        this.articleTitle = articleTitle;
+//        this.articleContent = articleContent;
+//        this.articleDate = "now()";
+//        this.articleView = 0;
+//        this.articleLike = 0;
+//    }
+
+    public Article(String articleId, String userId, String categoriesId, String articleTitle, String articleContent, String articleDate, int articleView, int articleLike) {
         this.articleId = articleId;
         this.userId = userId;
         this.categoriesId = categoriesId;
@@ -25,6 +43,17 @@ public class Article {
         this.articleDate = articleDate;
         this.articleView = articleView;
         this.articleLike = articleLike;
+    }
+
+    public String createArticleId(String userId){
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddHHmmss");
+        StringBuilder articleId =  new StringBuilder(sdf.format(new Date()));
+        Random random=new Random();
+        for(int i=0;i<3;i++){
+            articleId.append(random.nextInt(10));
+        }
+        articleId.append(userId);
+        return articleId.toString();
     }
 
     public String getArticleId() {
@@ -75,19 +104,19 @@ public class Article {
         this.articleDate = articleDate;
     }
 
-    public String getArticleView() {
+    public int getArticleView() {
         return articleView;
     }
 
-    public void setArticleView(String articleView) {
+    public void setArticleView(int articleView) {
         this.articleView = articleView;
     }
 
-    public String getArticleLike() {
+    public int getArticleLike() {
         return articleLike;
     }
 
-    public void setArticleLike(String articleLike) {
+    public void setArticleLike(int articleLike) {
         this.articleLike = articleLike;
     }
 
@@ -100,8 +129,9 @@ public class Article {
                 ", articleTitle='" + articleTitle + '\'' +
                 ", articleContent='" + articleContent + '\'' +
                 ", articleDate='" + articleDate + '\'' +
-                ", articleView='" + articleView + '\'' +
-                ", articleLike='" + articleLike + '\'' +
+                ", articleView=" + articleView +
+                ", articleLike=" + articleLike +
                 '}';
     }
 }
+

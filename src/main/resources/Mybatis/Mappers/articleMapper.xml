@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cqut.blogspring.dao.ArticleDao">
-    <insert id="uploadArticle">
-        insert into article values (#{blog.articleId}, #{blog.userId}, #{blog.categoriesId}, #{blog.articleContent}, #{blog.articleDate}, #{articleView}, #{articleLike})
+    <insert id="uploadArticle" parameterType="Article">
+        insert into article() value (#{articleId}, #{userId}, #{categoriesId}, #{articleTitle}, #{articleContent}, #{articleDate}, #{articleView}, #{articleLike})
     </insert>
     <select id="getArticle" resultType="Article">
         select * from article where article_id = #{articleId}
