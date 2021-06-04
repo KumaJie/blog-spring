@@ -3,15 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cqut.blogspring.dao.ArticleDao">
-    <select id="selectByTitle" resultType="Article">
-        select * from article where article_title = #{articleTitle}
+    <select id="selectById" resultType="Article">
+        select * from article where article_id = #{articleId}
     </select>
 
     <select id="selectListByUserId" resultType="Article">
         select * from article where user_id = #{userId} order by  article_date desc
     </select>
 
-    <select id="selectListByViews" resultType="Article">
+    <select id="selectListByView" resultType="Article">
         select * from article order by article_view, article_date desc
     </select>
 

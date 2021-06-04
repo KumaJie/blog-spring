@@ -13,11 +13,11 @@ import java.util.List;
 public interface ArticleDao {
 
     /**
-     * 根据文章标题获取相应文章
-     * @param articleTitle 文章标题
+     * 根据文章ID获取相应文章
+     * @param articleId 文章id
      * @return 返回文章内容
      */
-    Article selectByTitle(String articleTitle);
+    Article selectById(String articleId);
 
     /**
      * 返回该id用户的所有文章
@@ -30,7 +30,7 @@ public interface ArticleDao {
      * 根据浏览量返回所有文章
      * @return 所有文章
      */
-    List<Article> selectListByViews();
+    List<Article> selectListByView();
 
     /**
      * 返回所有文章

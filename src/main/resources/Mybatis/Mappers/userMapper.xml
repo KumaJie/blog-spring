@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cqut.blogspring.dao.UserDao">
+    <insert id="insert" parameterType="User">
+        insert into user(user_id, user_name, user_pwd) value (#{userId}, #{userName}, #{userPwd})
+    </insert>
+
+    <select id="selectById" parameterType="User" resultType="User">
+        select * from user where user_id = #{userId} and user_pwd = #{userPwd}
+    </select>
+
+    <update id="modifyPwd" parameterType="string">
+        update user set user_pwd = #{pwd} where user_id = #{id}
+    </update>
+
+    <update id="modifyImg" parameterType="string">
+        update user set user_img = #{img} where user_id = #{id}
+    </update>
+</mapper>

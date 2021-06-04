@@ -23,17 +23,6 @@ public class Article {
 
     public Article(){}
 
-//    public Article(String articleId, String userId, String categoriesId, String articleTitle, String articleContent, String articleDate, int articleView, int articleLike) {
-//        this.articleId = createArticleId(userId);
-//        this.userId = userId;
-//        this.categoriesId = categoriesId;
-//        this.articleTitle = articleTitle;
-//        this.articleContent = articleContent;
-//        this.articleDate = "now()";
-//        this.articleView = 0;
-//        this.articleLike = 0;
-//    }
-
     public Article(String articleId, String userId, String categoriesId, String articleTitle, String articleContent, String articleDate, int articleView, int articleLike) {
         this.articleId = articleId;
         this.userId = userId;
@@ -45,15 +34,15 @@ public class Article {
         this.articleLike = articleLike;
     }
 
-    public String createArticleId(String userId){
+    public void createArticleId(){
         SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddHHmmss");
         StringBuilder articleId =  new StringBuilder(sdf.format(new Date()));
         Random random=new Random();
         for(int i=0;i<3;i++){
             articleId.append(random.nextInt(10));
         }
-        articleId.append(userId);
-        return articleId.toString();
+        articleId.append(this.userId);
+        this.articleId = articleId.toString();
     }
 
     public String getArticleId() {
