@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cqut.blogspring.dao.CommentDao">
+    <insert id="insert" parameterType="Comment">
+        insert into comment(comment_id, user_id, article_id, comment_content) value (NULL, #{userId}, #{articleId}, #{commentContent})
+    </insert>
+
+    <select id="selectListByArticleId" parameterType="string" resultType="Comment">
+        select * from comment where article_id = #{articleId}
+    </select>
+
+    <update id="modifyLike" parameterType="string">
+        update comment set comment_like = comment_like + 1
+        where comment_id = #{commentId}
+    </update>
+</mapper>

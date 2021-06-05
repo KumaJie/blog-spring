@@ -29,3 +29,11 @@
 | `modifyPwd`  | /user/modifypwd | 修改密码 |
 | `modifyImg`  | /user/modifyImg | 修改头像 |
 
+3. Comment
+
+|         方法名称          |           访问地址           |             用途             |
+| :-----------------------: | :--------------------------: | :--------------------------: |
+|        `insert()`         |         /comment/add         | 根据用户id以及文章id添加评论 |
+| `selectListByArticleId()` | /comment/findListByArticleId |      返回对应文章的评论      |
+|      `modifyLike()`       |       /comment/addLike       |             点赞             |
+
