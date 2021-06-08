@@ -26,11 +26,29 @@ public class ArticleController {
 
     @GetMapping("/findListById")
     public List<Article> findBlog(@RequestParam("id")String id){
-        return articleDao.selectListByUserId(id);
+        List<Article> allArticle = articleDao.selectListByUserId(id);
+        for (Article art : allArticle){
+            Integer sum = articleDao.selectCommentById(art.getArticleId());
+            if (sum == null){
+                art.setCommentSum(0);
+            }else {
+                art.setCommentSum(sum);
+            }
+        }
+        return allArticle;
     }
     @PostMapping("/findListByView")
     public List<Article> findByView(){
-        return articleDao.selectListByView();
+        List<Article> allArticle = articleDao.selectListByView();
+        for (Article art : allArticle){
+            Integer sum = articleDao.selectCommentById(art.getArticleId());
+            if (sum == null){
+                art.setCommentSum(0);
+            }else {
+                art.setCommentSum(sum);
+            }
+        }
+        return allArticle;
     }
 
     @PostMapping("/add")
@@ -47,5 +65,13 @@ public class ArticleController {
     @GetMapping("updateLike")
     public String addLike(@RequestParam("articleId") String articleId){
         return "" + articleDao.updateLikeById(articleId);
+    }
+    @GetMapping("deleteById")
+    public String deleteArticle(@RequestParam("articleId") String articleId){
+        return ""+articleDao.deleteById(articleId);
+    }
+    @PostMapping("modifyContent")
+    public String modifyContent(@RequestBody Article article){
+        return ""+articleDao.modifyContent(article);
     }
 }

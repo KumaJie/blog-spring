@@ -14,12 +14,15 @@ import java.util.Random;
 public class Article {
     private String articleId;
     private String userId;
+    private String userImg;
+    private String userName;
     private String categoriesId;
     private String articleTitle;
     private String articleContent;
     private String articleDate;
     private int articleView;
     private int articleLike;
+    private int commentSum;
 
     public Article(){}
 
@@ -69,6 +72,14 @@ public class Article {
         this.categoriesId = categoriesId;
     }
 
+    public String getUserImg() {
+        return userImg;
+    }
+
+    public void setUserImg(String userImg) {
+        this.userImg = userImg;
+    }
+
     public String getArticleTitle() {
         return articleTitle;
     }
@@ -109,6 +120,21 @@ public class Article {
         this.articleLike = articleLike;
     }
 
+    public int getCommentSum() {
+        return commentSum;
+    }
+
+    public void setCommentSum(int commentSum) {
+        this.commentSum = commentSum;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
     @Override
     public String toString() {
         return "Article{" +

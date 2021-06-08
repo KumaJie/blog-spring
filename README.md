@@ -16,9 +16,10 @@
 | `selectListByView` |  /article/findListByView  | 根据浏览量返回所有文章 |
 |    `selectList()`    |   /article/findList    |      返回所有文章      |
 |      `insert()`      |      /article/add      |       插入新文章       |
-|  `deleteByTitle()`   | /article/deleteByTitle |  根据文章标题删除文章  |
+|  `deleteById()` | /article/deleteById |  根据文章ID删除文章  |
 |  `updateViewById()`  |  /article/updateView   |       增加浏览量       |
-|  `updateLikeById()`  |  /article/updateLike   |       增加评论数       |
+|  `updateLikeById()`  |  /article/updateLike   |       增加评论       |
+| `modifyContent` | /article/modifyContent | 修改内容 |
 
 2. User
 

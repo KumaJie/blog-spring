@@ -46,11 +46,11 @@ public interface ArticleDao {
     boolean insert(Article blog);
 
     /**
-     * 根据文章标题删除文章
-     * @param articleTitle 文章标题
+     * 根据文章ID删除文章
+     * @param articleId 文章ID
      * @return  是否成功
      */
-    boolean deleteByTitle(String articleTitle);
+    boolean deleteById(String articleId);
 
     /**
      * 增加浏览量
@@ -65,4 +65,18 @@ public interface ArticleDao {
      * @return 是否成功
      */
     boolean updateLikeById(String articleId);
+
+    /**
+     * 根据文章ID查询评论总数
+     * @param articleId 文章ID
+     * @return 总数
+     */
+    Integer selectCommentById(String articleId);
+
+    /**
+     * 修改博客内容
+     * @param blog 修改的内容
+     * @return 是否成功
+     */
+    boolean modifyContent(Article blog);
 }

@@ -6,9 +6,9 @@
     <insert id="insert" parameterType="Comment">
         insert into comment(comment_id, user_id, article_id, comment_content) value (NULL, #{userId}, #{articleId}, #{commentContent})
     </insert>
-
+<!--    查询视图-->
     <select id="selectListByArticleId" parameterType="string" resultType="Comment">
-        select * from comment where article_id = #{articleId}
+        select * from comment_detail where article_id = #{articleId}
     </select>
 
     <update id="modifyLike" parameterType="string">
