@@ -2,7 +2,6 @@ package cqut.blogspring.controller;
 
 import cqut.blogspring.dao.ArticleDao;
 import cqut.blogspring.pojo.Article;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,14 +18,14 @@ public class ArticleController {
         this.articleDao = articleDao;
     }
 
-    @PostMapping("findById")
+    @GetMapping("findById")
     public Article find(@RequestParam("articleId") String articleId){
         return articleDao.selectById(articleId);
     }
 
     @GetMapping("/findListById")
-    public List<Article> findBlog(@RequestParam("id")String id){
-        List<Article> allArticle = articleDao.selectListByUserId(id);
+    public List<Article> findBlog(@RequestParam("userId")String userId){
+        List<Article> allArticle = articleDao.selectListByUserId(userId);
         for (Article art : allArticle){
             Integer sum = articleDao.selectCommentById(art.getArticleId());
             if (sum == null){
@@ -37,7 +36,7 @@ public class ArticleController {
         }
         return allArticle;
     }
-    @PostMapping("/findListByView")
+    @GetMapping("/findListByView")
     public List<Article> findByView(){
         List<Article> allArticle = articleDao.selectListByView();
         for (Article art : allArticle){
@@ -48,6 +47,7 @@ public class ArticleController {
                 art.setCommentSum(sum);
             }
         }
+
         return allArticle;
     }
 

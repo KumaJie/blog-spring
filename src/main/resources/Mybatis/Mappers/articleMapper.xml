@@ -12,7 +12,7 @@
     </select>
 
     <select id="selectListByView" resultType="Article">
-        select * from article_info order by article_view, article_date desc
+        select * from article_info order by article_view desc
     </select>
 
     <select id="selectCommentById" parameterType="string" resultType="integer">
