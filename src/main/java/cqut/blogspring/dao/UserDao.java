@@ -25,11 +25,10 @@ public interface UserDao {
 
     /**
      * 修改密码
-     * @param id 用户id
-     * @param pwd 新密码
+     * @param user 新的用户信息
      * @return 是否成功
      */
-    boolean modifyPwd(String id, String pwd);
+    boolean modifyPwd(User user);
 
     /**
      * 修改头像

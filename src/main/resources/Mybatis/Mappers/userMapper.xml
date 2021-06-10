@@ -12,7 +12,7 @@
     </select>
 
     <update id="modifyPwd" parameterType="string">
-        update user set user_pwd = #{pwd} where user_id = #{id}
+        update user set user_pwd = #{userPwd} where user_id = #{userId}
     </update>
 
     <update id="modifyImg" parameterType="string">
