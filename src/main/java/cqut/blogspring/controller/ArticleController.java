@@ -4,7 +4,10 @@ import cqut.blogspring.dao.ArticleDao;
 import cqut.blogspring.pojo.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import java.io.File;
 import java.util.List;
 
 @RestController
@@ -73,5 +76,14 @@ public class ArticleController {
     @PostMapping("modifyContent")
     public String modifyContent(@RequestBody Article article){
         return ""+articleDao.modifyContent(article);
+    }
+    @PostMapping("upLoadImg")
+    public String upLoadImg(MultipartFile img) throws Exception{
+        String url;
+        String rootPath = this.getClass().getClassLoader().getResource("static").getPath();
+        String targetPath = "http://localhost:8085/user/getImg?name=";
+        img.transferTo(new File(rootPath, img.getOriginalFilename()));
+        url = targetPath+img.getOriginalFilename();
+        return url;
     }
 }

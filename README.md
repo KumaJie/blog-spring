@@ -20,6 +20,7 @@
 |  `updateViewById()`  |  /article/updateView   | `GET` |       增加浏览量       |
 |  `updateLikeById()`  |  /article/updateLike   | `GET` |       增加喜欢       |
 | `modifyContent()` | /article/modifyContent | `POST` | 修改内容 |
+| `upLoadImg()` | /article/upLoadImg | `POST` | 上传图片 |
 
 2. User
 
