@@ -12,6 +12,8 @@ spring:
     multipart:
       max-file-size: 100MB
       max-request-size: 1000MB
+  mvc:
+    static-path-pattern: /images/**
 mybatis:
   configuration:
 #    启用驼峰转换

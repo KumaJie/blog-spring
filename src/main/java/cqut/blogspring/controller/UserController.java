@@ -51,7 +51,7 @@ public class UserController {
         String url = "";
         try {
             file.transferTo(targetFile);
-            url = "http://localhost:8085/user/getImg?name="+imgName;
+            url = "http://localhost:8085/images/"+imgName;
             userDao.modifyImg(user.getUserId(), url);
         }catch (IOException e){
             e.printStackTrace();

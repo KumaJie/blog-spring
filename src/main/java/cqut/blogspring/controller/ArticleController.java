@@ -81,7 +81,7 @@ public class ArticleController {
     public String upLoadImg(MultipartFile img) throws Exception{
         String url;
         String rootPath = this.getClass().getClassLoader().getResource("static").getPath();
-        String targetPath = "http://localhost:8085/user/getImg?name=";
+        String targetPath = "http://localhost:8085/images/";
         img.transferTo(new File(rootPath, img.getOriginalFilename()));
         url = targetPath+img.getOriginalFilename();
         return url;
