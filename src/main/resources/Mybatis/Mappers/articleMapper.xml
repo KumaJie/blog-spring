@@ -15,6 +15,10 @@
         select * from article_info order by article_view desc
     </select>
 
+    <select id="selectListByTitle" resultType="Article">
+        select * from article_info where article_title like "%"#{articleTitle}"%"
+    </select>
+
     <select id="selectCommentById" parameterType="string" resultType="integer">
         SELECT
             COUNT(*) as comment_sum

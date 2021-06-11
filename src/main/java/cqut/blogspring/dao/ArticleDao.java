@@ -33,10 +33,17 @@ public interface ArticleDao {
     List<Article> selectListByView();
 
     /**
+     * 根据文章标题查找文章
+     * @param articleTitle 文章标题
+     * @return 符合要求的文章
+     */
+    List<Article> selectListByTitle(String articleTitle);
+    /**
      * 返回所有文章
      * @return 所有文章
      */
     List<Article> selectList();
+
 
     /**
      * 插入新文章

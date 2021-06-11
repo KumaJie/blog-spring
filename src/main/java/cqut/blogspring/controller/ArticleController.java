@@ -54,6 +54,19 @@ public class ArticleController {
         return allArticle;
     }
 
+    @GetMapping("findListByTitle")
+    public List<Article> findByTitle(@RequestParam("articleTitle") String articleTitle){
+        List<Article> allArticle = articleDao.selectListByTitle(articleTitle);
+        for (Article art : allArticle){
+            Integer sum = articleDao.selectCommentById(art.getArticleId());
+            if (sum == null){
+                art.setCommentSum(0);
+            }else {
+                art.setCommentSum(sum);
+            }
+        }
+        return allArticle;
+    }
     @PostMapping("/add")
     public String addBlog(@RequestBody Article article){
 //       建立编号

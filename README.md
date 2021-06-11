@@ -14,7 +14,8 @@
 |  `selectById()`   |  /article/findById  |  `GET`  |  根据文章ID获取文章  |
 | `selectListByUserId()` |   /article/findListById    |   `GET`   | 返回该id用户的所有文章 |
 | `selectListByView()` |  /article/findListByView  |  `GET`  | 根据浏览量返回所有文章 |
-|    `selectList()`    |   /article/findList    |       |      返回所有文章      |
+| `findByTitle()` | /article/findListByTitle | `GET` | 模糊查询文章标题 |
+|    `selectList()`    |   /article/findList    | ❌ |      返回所有文章      |
 |      `insert()`      |      /article/add      |      `POST`      |       插入新文章       |
 |  `deleteById()` | /article/deleteById | `GET` |  根据文章ID删除文章  |
 |  `updateViewById()`  |  /article/updateView   | `GET` |       增加浏览量       |
